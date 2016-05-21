@@ -1,0 +1,12 @@
+name: Shops
+version: 1.0
+main: com.gmail.kylerslade.shop.Shops
+commands:
+  Shop:
+    description: Displays a list of shops.
+  SetShop:
+    description: Sets your shop location.
+  RemoveShop:
+    description: Removes a shop.
+  EditShop:
+    description: Allows you to edit your shop.
