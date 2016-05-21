@@ -3,6 +3,7 @@ package com.gmail.kylerslade.profiles;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.bukkit.Location;
@@ -47,8 +48,9 @@ public class SaveProfile {
 		HashMap<UUID, String> shopDescriptions = shopWindow.getShopDescriptions();
 
 		//Save the players shop locations.
-		for(UUID playerUUID : shopLocations.keySet()){
-
+		for(Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
+			UUID playerUUID = iterator.next();
+			
 			Location location = shopLocations.get(playerUUID);
 
 			int x = location.getBlockX(); 
@@ -76,7 +78,9 @@ public class SaveProfile {
 		}	
 
 		//Save the players shop names.
-		for(UUID playerUUID : shopNames.keySet()){
+		for(Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
+			UUID playerUUID = iterator.next();
+			
 			try {
 
 				fileData.set("names." + playerUUID.toString() + ".name", shopNames.get(playerUUID));
@@ -88,7 +92,9 @@ public class SaveProfile {
 		}
 
 		//Save the players shop Lores.
-		for(UUID playerUUID : shopDescriptions.keySet()){
+		for(Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
+			UUID playerUUID = iterator.next();
+			
 			try {
 
 				fileData.set("descriptions." + playerUUID.toString() + ".description", shopDescriptions.get(playerUUID));

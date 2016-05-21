@@ -2,6 +2,7 @@ package com.gmail.kylerslade.listeners;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -57,8 +58,9 @@ public class InventoryClick implements Listener{
 
 									//Loop through all the keys in the map and check if
 									//the owner of the item clicked on equals the one of the items in the map.
-									for(UUID playerUUIDs : shopLocations.keySet()){
-
+									for(Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
+										UUID playerUUIDs = iterator.next();
+										
 										//Good to go.
 										OfflinePlayer players = Bukkit.getOfflinePlayer(playerUUIDs);
 

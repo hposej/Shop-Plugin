@@ -2,6 +2,7 @@ package com.gmail.kylerslade.gui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -32,7 +33,8 @@ public class ShopWindow {
 		Shops.getInstance().getInventoryClick().addOpenedShopWindow(player);
 		
 		//Creating skulls for the inventory.
-		for(UUID playerUUIDs : shopLocations.keySet()){
+		for(Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
+			UUID playerUUIDs = iterator.next();
 			
 			//TODO: Add a next page button.
 			
