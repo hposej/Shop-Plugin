@@ -65,11 +65,12 @@ public class Commands implements CommandExecutor {
 				shopWindow.removeShopNames(playerUUID);
 				shopWindow.removeShopDescriptions(playerUUID);
 			} else if (args.length == 1){
+				//Permission node is required for removing someone else's shop.
 				if (player.hasPermission("shops.remove.players")) {
 
 					ShopWindow shopWindow = new ShopWindow(); 
 					HashMap<UUID, Location> shopLocations = shopWindow.getShopLocations();									
-
+					
 					for (Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
 						UUID playerUUIDs = iterator.next();	
 

@@ -1,5 +1,12 @@
 package com.gmail.kylerslade.shop;
 
+/*-----------------------------------------------------------------*\
+| Name: Shops													    |
+| Functionality: The plugin allows access to setting up shops and   |
+| teleporting to them. Includes editing of shops.					|
+| Version: Running on 1.9.2 +										|	
+ \*----------------------------------------------------------------*/
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.PluginManager;
@@ -22,6 +29,7 @@ public class Shops extends JavaPlugin{
 	private Profile profile;
 	private LoadProfile loadProfile;
 	
+	//Singleton
 	public static Shops getInstance(){
 		return instance;
 	}	
@@ -35,14 +43,15 @@ public class Shops extends JavaPlugin{
 	public void onEnable(){			
 		this.getDataFolder().mkdir();
 		
+		//Allows for the execute of commands.
 		CommandExecutor commands = new Commands();
 		getCommand("Shop").setExecutor(commands);
 		getCommand("SetShop").setExecutor(commands);
 		getCommand("RemoveShop").setExecutor(commands);
 		getCommand("EditShop").setExecutor(commands);
 		
-		registerListeners();
-		
+		registerListeners();	
+		//Creates instances for saving player shop data.
 		makeProfileInstance();
 	}
 

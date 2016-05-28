@@ -23,6 +23,7 @@ public class AsyncPlayerChat implements Listener{
 		Player player = event.getPlayer();
 		UUID playerUUID = player.getUniqueId();
 		
+		//Editing the player shop name.
 		if (editName.contains(player)){
 			
 			String command = event.getMessage();
@@ -39,6 +40,7 @@ public class AsyncPlayerChat implements Listener{
 			event.setCancelled(true);
 			
 			editName.remove(player);
+		//Editing the player shop description.
 		}else if (editDescription.contains(player)){
 			
 			String command = event.getMessage();

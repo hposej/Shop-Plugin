@@ -57,11 +57,10 @@ public class InventoryClick implements Listener{
 									ItemStack typeSkull = new ItemStack(Material.SKULL_ITEM, 1, (short) 3); 
 
 									//Loop through all the keys in the map and check if
-									//the owner of the item clicked on equals the one of the items in the map.
+									//the owner of the item clicked on equals one of the items in the map.
 									for(Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
 										UUID playerUUIDs = iterator.next();
 										
-										//Good to go.
 										OfflinePlayer players = Bukkit.getOfflinePlayer(playerUUIDs);
 
 										SkullMeta skullMeta = (SkullMeta) typeSkull.getItemMeta();

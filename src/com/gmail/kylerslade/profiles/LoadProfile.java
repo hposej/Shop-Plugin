@@ -74,7 +74,7 @@ public class LoadProfile {
 				shopWindow.setShopNames(playerUUIDs, passName);
 			}
 			
-			//Sets the shop lores. 
+			//Sets the shop descriptions. 
 			for (String lores : fileData.getConfigurationSection("descriptions." + strPlayerUUID).getKeys(false)){
 				
 				String passLore = fileData.getConfigurationSection("descriptions." + strPlayerUUID).getString(lores);

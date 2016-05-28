@@ -44,7 +44,7 @@ public class ShopWindow {
 			OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(playerUUIDs);
 			String offlinePlayerName = offlinePlayer.getName();
 			
-			//Give the skull an owner to display the head.
+			//Give the skulls an owner to display the head.
 			skullsMeta.setOwner(offlinePlayerName);
 			//Set the shop display name.
 			if (shopNames.containsKey(playerUUIDs)){
@@ -66,6 +66,10 @@ public class ShopWindow {
 		//Open the inventory.
 		player.openInventory(shopWindow);	
 	}
+	
+	/*
+	 * Below: Setters and getters.
+	 */
 	
 	public void setShopLocations(UUID playerUUID, Location location){	
 		if (shopLocations.containsKey(playerUUID)){
