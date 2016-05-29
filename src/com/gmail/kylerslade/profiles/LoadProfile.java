@@ -29,36 +29,25 @@ public class LoadProfile {
 			
 			int counter = 0;
 			
-			int x = 0;
-			int y = 0;
-			int z = 0;
-			
 			World world = Shops.getInstance().getServer().getWorld("world");
-			Location loc = new Location(world, x, y, z);
+			Location loc = new Location(world, 0, 0, 0);
 			
 			//Set the locations in the shop locatons made.
 			for (String pos : fileData.getConfigurationSection("locations." + strPlayerUUID).getKeys(false)){
 						
 				if (counter == 0){
-					x = fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos);
+					loc.setX(fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos));
 				}else if(counter == 1){
-					y = fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos);
+					loc.setY(fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos));
 				}else{
-					z = fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos);
+					loc.setY(fileData.getConfigurationSection("locations." + strPlayerUUID).getInt(pos));
 				}
-						
-				loc.setX(x);
-				loc.setY(y);
-				loc.setZ(z);
-				
+									
 				counter++;
 				if (counter > 2){
 					counter = 0;
 				}
 			}
-			
-			Shops.getInstance().getLogger().info(playerUUIDs.toString());
-			Shops.getInstance().getLogger().info(loc.toString());
 			
 			shopWindow.setShopLocations(playerUUIDs, loc);
 			

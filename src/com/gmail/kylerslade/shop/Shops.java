@@ -41,6 +41,7 @@ public class Shops extends JavaPlugin{
 	
 	@Override
 	public void onEnable(){			
+		//Generates the data folder for the plugin.
 		this.getDataFolder().mkdir();
 		
 		//Allows for the execute of commands.

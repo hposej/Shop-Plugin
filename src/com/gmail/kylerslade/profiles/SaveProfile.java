@@ -48,61 +48,59 @@ public class SaveProfile {
 		HashMap<UUID, String> shopDescriptions = shopWindow.getShopDescriptions();
 
 		//Save the players shop locations.
-		for(Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
+		for (Iterator<UUID> iterator = shopLocations.keySet().iterator(); iterator.hasNext();){
 			UUID playerUUID = iterator.next();
-			
+
 			Location location = shopLocations.get(playerUUID);
 
 			int x = location.getBlockX(); 
 			int y = location.getBlockY(); 
 			int z = location.getBlockZ(); 
 
-			try {
+			String strSlot = Integer.toString(slot); 
 
-				String strSlot = Integer.toString(slot); 
+			fileData.set("playeruuids." + strSlot, playerUUID.toString());
 
-				fileData.set("playeruuids." + strSlot, playerUUID.toString());
+			Shops.getInstance().getLogger().info(strSlot);
 
-				Shops.getInstance().getLogger().info(strSlot);
+			fileData.set("locations." + playerUUID.toString() + ".x", x);
+			fileData.set("locations." + playerUUID.toString() + ".y", y);
+			fileData.set("locations." + playerUUID.toString() + ".z", z);
 
-				fileData.set("locations." + playerUUID.toString() + ".x", x);
-				fileData.set("locations." + playerUUID.toString() + ".y", y);
-				fileData.set("locations." + playerUUID.toString() + ".z", z);
-
-				fileData.save(profilePath);
-
-			}catch (IOException exception) {
-				exception.printStackTrace();
-			}
 			slot++;
 		}	
 
+		//Save the shop locations.
+		try {
+			fileData.save(profilePath);
+		} catch (IOException exe) {
+			exe.printStackTrace();
+		}	
+
 		//Save the players shop names.
-		for(Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
+		for (Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
 			UUID playerUUID = iterator.next();
-			
-			try {
-
-				fileData.set("names." + playerUUID.toString() + ".name", shopNames.get(playerUUID));
-				fileData.save(profilePath);
-
-			}catch (IOException exception) {
-				exception.printStackTrace();
-			}
+			fileData.set("names." + playerUUID.toString() + ".name", shopNames.get(playerUUID));
 		}
+
+		//Save the shop names.
+		try {
+			fileData.save(profilePath);
+		} catch (IOException exe) {
+			exe.printStackTrace();
+		}	
 
 		//Save the players shop Lores.
-		for(Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
+		for (Iterator<UUID> iterator = shopNames.keySet().iterator(); iterator.hasNext();){
 			UUID playerUUID = iterator.next();
-			
-			try {
-
-				fileData.set("descriptions." + playerUUID.toString() + ".description", shopDescriptions.get(playerUUID));
-				fileData.save(profilePath);
-
-			}catch (IOException exception) {
-				exception.printStackTrace();
-			}
+			fileData.set("descriptions." + playerUUID.toString() + ".description", shopDescriptions.get(playerUUID));
 		}
+
+		//Save the shop descriptions.
+		try {
+			fileData.save(profilePath);
+		} catch (IOException exe) {
+			exe.printStackTrace();
+		}	
 	}	
 }
