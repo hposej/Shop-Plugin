@@ -57,8 +57,6 @@ public class AsyncPlayerChat implements Listener{
 			event.setCancelled(true);
 			
 			editDescription.remove(player);
-		}else{
-			event.setCancelled(false);
 		}
 	}
 	

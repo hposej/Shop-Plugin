@@ -10,7 +10,7 @@ import com.gmail.kylerslade.shop.Shops;
 public class InventoryClose implements Listener{
 	
 	@EventHandler
-	public void onInventoryClock(InventoryCloseEvent event){
+	public void onInventoryClose(InventoryCloseEvent event){
 		Player player = (Player) event.getPlayer();
 		Shops.getInstance().getInventoryClick().removeCannotMove(player);
 		Shops.getInstance().getInventoryClick().removeEditShop(player);
